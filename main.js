@@ -123,7 +123,8 @@ let stephansdom = {
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.STAT_NAME);
-        layer.bindPopup(`<h4><i class="fa-solid fa-bus"></i>${feature.properties.STAT_NAME}</h4>`);
+        layer.bindPopup(`<h4><i class="fa-solid fa-bus"></i> ${feature.properties.LINE_NAME}</h4>
+        ${feature.properties.STAT_NAME}`);
       }
     }).addTo(themaLayer.stops);
   }
