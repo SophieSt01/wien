@@ -104,9 +104,10 @@ let stephansdom = {
         console.log(feature);
         console.log(feature.properties.LINE_NAME);
         layer.bindPopup(`
-        <h4>${feature.properties.LINE_NAME}</h4>
-        <h5>Startstation: ${feature.properties.FROM_NAME}</h5>
-        <h5>Endstation: ${feature.properties.TO_NAME}</h5>
+        <h4><i class="fa-solid fa-bus"></i> ${feature.properties.LINE_NAME}</h4>
+        <h5><i class="fa-regular fa-circle-stop"></i> Startstation: ${feature.properties.FROM_NAME}</h5>
+        <i class="fa-solid fa-arrow-down"></i>
+        <h5><i class="fa-regular fa-circle-stop"></i> Endstation: ${feature.properties.TO_NAME}</h5>
         `);
       }
     }).addTo(themaLayer.lines);
@@ -140,7 +141,9 @@ let stephansdom = {
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.NAME);
-        layer.bindPopup(`<i class="fa-solid fa-person-walking"></i><h4>Fußgängerzone</h4>`);
+        layer.bindPopup(`<h4><i class="fa-solid fa-person-walking"> </i>Fußgängerzone</h4>
+        <i class="fa-regular fa-clock"></i> ${feature.properties.ZEITRAUM}
+        <i class="fa-solid fa-info"></i> ${feature.properties.AUSN_TEXT}`);
       }
     }).addTo(themaLayer.zones);
   }
