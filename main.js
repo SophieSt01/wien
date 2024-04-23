@@ -160,8 +160,13 @@ let stephansdom = {
         console.log(feature);
         console.log(feature.properties.NAME);
         layer.bindPopup(`
-        <h4><i class="fa-solid fa-bed"></i> <a href="${feature.properties.WEBLINK1}" target="xyz"> ${feature.properties.BETRIEB}</a></h4>
-        <address>${feature.properties.ADRESSE}</address>
+        <h4><i class="fa-solid fa-bed"></i>  ${feature.properties.BETRIEB}</h4>
+        <h5>${feature.properties.BETRIEBSART_TXT} ${feature.properties.KATEGORIE_TXT}</h5>
+        <h5>_______________________________</h5>
+        <address>Adr: ${feature.properties.ADRESSE}</address>
+        Tel.:<a href="${feature.properties.KONTAKT_TEL}" target="xyz"> ${feature.properties.KONTAKT_TEL}</a><br>
+        <a href="${feature.properties.KONTAKT_EMAIL}" target="xyz">${feature.properties.KONTAKT_EMAIL}</a><br>
+        <a href="${feature.properties.WEBLINK1}" target="xyz">Homepage</a></p>
         `);
       }
     }).addTo(themaLayer.hotels);
