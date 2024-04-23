@@ -141,9 +141,9 @@ let stephansdom = {
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.NAME);
-        layer.bindPopup(`<h4><i class="fa-solid fa-person-walking"> </i>Fußgängerzone</h4>
-        <i class="fa-regular fa-clock"></i> ${feature.properties.ZEITRAUM}
-        <i class="fa-solid fa-info"></i> ${feature.properties.AUSN_TEXT}`);
+        layer.bindPopup(`<h4><i class="fa-solid fa-person-walking"></i> Fußgängerzone ${feature.properties.ADRESSE}</h4> 
+        <p><i class="fa-regular fa-clock"></i> ${feature.properties.ZEITRAUM}</p>
+        <p><i class="fa-solid fa-circle-info"></i> ${feature.properties.AUSN_TEXT}</p>`);
       }
     }).addTo(themaLayer.zones);
   }
