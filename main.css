@@ -1,0 +1,56 @@
+/* Vienna Sightseeing Beispiel */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+/* links sind schwarz*/
+a {
+    color: black;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+header h2 {
+    margin: 0;
+}
+
+header nav {
+    text-align: right;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+article {
+    margin-top: 0.5em;
+}
+
+/*das ist die id map*/
+#map {
+    width: 100%;
+    /*100% im container*/
+    height: 85vh;
+    /*vh= viewpoint height, das ist alles was der Browser grad anzeigen kann, mit 85vh dann ist die karte immer 85% von dem was der Browser am Bild grad anzeigt*/
+    border: 1px solid gray;
+}
+
+footer {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+}
+
+footer nav {
+    display: inline-block;
+}
