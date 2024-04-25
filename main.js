@@ -9,8 +9,9 @@ let stephansdom = {
 
 // alles was mit L. anfangt ist eine Leafletsache
 // Karte initialisieren
-let map = L.map("map").setView([stephansdom.lat, stephansdom.lng], 12);
+let map = L.map("map").setView([stephansdom.lat, stephansdom.lng], 15);
 // die koordinaten sind in der Variable Stephansdom gespeichert, sie sind keine eigenen variablen --> let stephandsdom, deshlab muss ich auch darauf zugreifen
+// zahl hinten ist das zoom-level (15)
 
 // BasemapAT Layer mit Leaflet provider plugin als startLayer Variable
 // das ist ein Plugin und wir können die Kartengrundlagen aus diesem Plugin verwenden.
