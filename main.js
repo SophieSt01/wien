@@ -109,14 +109,14 @@ let stephansdom = {
        } else if (lineName == "Yellow Line") {
           lineColor = "#FFDC00";
        } else if (lineName == "Blue Line") {
-          lineColor = "#0074D9"
-       }
-        return {
-          color: "#2ECC40",
-          weight: 1,
-          opacity: 0.4,
-          fillOpacity: 0.1,
-        };
+          lineColor = "#0074D9";
+       } else if (lineName == "Green Line") {
+          lineColor = "#2ECC40";
+       } else if (lineName == "Grey Line") {
+          lineColor = "#AAAAAA"
+       } else if (lineName == "Orange Line") {
+          lineColor = "#FF851B"
+       } else {}
       },
       onEachFeature: function (feature, layer) {
         console.log(feature);
