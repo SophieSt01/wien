@@ -23,7 +23,7 @@ let themaLayer = {
   lines: L.featureGroup().addTo(map),
   stops: L.featureGroup().addTo(map),
   zones: L.featureGroup().addTo(map),
-  hotels: L.markerClusterGroup().addTo(map),
+  hotels: L.markerClusterGroup({ disableClusteringAtZoom: 17 }).addTo(map), // hotels werden zu clustzern zusammengefasst, damit es übersichtlicher wird. Bei zoom-level 17 sieht man dann alle
 }
 
 // Hintergrundlayer
@@ -243,7 +243,7 @@ async function loadhotels(url) {
         })
       })
     },
-  
+
     onEachFeature: function (feature, layer) {
       console.log(feature);
       console.log(feature.properties.NAME);
@@ -257,7 +257,7 @@ async function loadhotels(url) {
         <a href="${feature.properties.WEBLINK1}" target="xyz">Homepage</a></p>
         `);
     }
-    }).addTo(themaLayer.hotels);
-  }
+  }).addTo(themaLayer.hotels);
+}
 
 loadhotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json")
