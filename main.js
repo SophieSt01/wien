@@ -110,7 +110,7 @@ async function loadlines(url) {
   console.log(geojson);
   L.geoJSON(geojson, {
     style: function (feature) {
-      console.log(feature.properties.LINE_NAME);
+      //console.log(feature.properties.LINE_NAME);
       let lineName = feature.properties.LINE_NAME;
       let lineColor = "black";
       if (lineName == "Red Line") {
@@ -133,7 +133,7 @@ async function loadlines(url) {
       }
     },
     onEachFeature: function (feature, layer) {
-      console.log(feature);
+      //console.log(feature);
       console.log(feature.properties.LINE_NAME);
       layer.bindPopup(`
         <h4><i class="fa-solid fa-bus"></i> ${feature.properties.LINE_NAME}</h4>
@@ -219,30 +219,25 @@ async function loadhotels(url) {
   L.geoJSON(geojson, {
 
     pointToLayer: function (feature, latlng) {
-      console.log(feature.properties.KATEGORIE_TXT);
-      let category = feature.properties.KATEGORIE_TXT;
-      if (category == "1*") {
-        iconUrl = `icons/hotel_1star.png`;
-
-      } else if (category == "2*") {
-        iconUrl = `icons/hotel_2stars.png`;
-
-      } else if (category == "3*") {
-        iconUrl = `icons/hotel_3stars.png`;
-      } else if (category == "4*") {
-        iconUrl = `icons/hotel_4stars.png`;
-      } else if (category == "5*") {
-        iconUrl = `icons/hotel_5stars.png`;
+      //console.log(feature.properties.KATEGORIE_TXT);
+      let hotel_category = feature.properties.KATEGORIE_TXT;
+      if (hotel_category == "1*") {
+        hotelIconUrl = `icons/hotel_1star.png`;
+      } else if (hotel_category == "2*") {
+        hotelIconUrl = `icons/hotel_2stars.png`;
+      } else if (hotel_category == "3*") {
+        hotelIconUrl = `icons/hotel_3stars.png`;
+      } else if (hotel_category == "4*") {
+        hotelIconUrl = `icons/hotel_4stars.png`;
+      } else if (hotel_category == "5*") {
+        hotelIconUrl = `icons/hotel_5stars.png`;
       }
       else {
-        iconUrl = "icons/hotel_0star";
-        // vllt kommen noch andere Linien dazu
+        hotelIconUrl = "icons/hotel_0star";
       }
       return L.marker(latlng, {
         icon: L.icon({
-
-
-          iconUrl: iconUrl,
+          iconUrl: hotelIconUrl, // oder: davor nur Name, z.B. hotel_0star, dafür dann hier: 'icons/${iconName}.png`
           iconAnchor: [16, 37],
           popAnchor: [0, -37]
         })
