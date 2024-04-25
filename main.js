@@ -87,7 +87,7 @@ let stephansdom = {
             popAnchor: [0, -37]
           })
         });
-      }
+      },
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.NAME);
@@ -144,6 +144,17 @@ let stephansdom = {
   
   loadlines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json")
   
+  // String, alt shift --> Spaltenmarkiermodus
+  /*
+  bus_1.png Red
+  bus_2.png Yellow
+  bus_3.png Blue
+ 4 Green
+  5 Grey
+  6 Orange
+
+  */
+
   async function loadstops(url) {
     console.log("Loading", url);
     let response = await fetch(url);
@@ -153,6 +164,12 @@ let stephansdom = {
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.STAT_NAME);
+        let statName = feature.properties.STAT_NAME;
+        let stopColor = "black";
+        if(statName =="Red Line") {
+          lineColor ="#FF4136";
+       } else if (lineName == "Yellow Line") {
+          lineColor = "#FFDC00";
         layer.bindPopup(`<h4><i class="fa-solid fa-bus"></i> ${feature.properties.LINE_NAME}</h4>
         ${feature.properties.STAT_NAME}`);
       }
