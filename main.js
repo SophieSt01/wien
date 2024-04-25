@@ -116,7 +116,9 @@ let stephansdom = {
           lineColor = "#AAAAAA"
        } else if (lineName == "Orange Line") {
           lineColor = "#FF851B"
-       } else {}
+       } else {
+        // vllt kommen noch andere Linien dazu
+       }
       },
       onEachFeature: function (feature, layer) {
         console.log(feature);
