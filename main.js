@@ -161,20 +161,24 @@ let stephansdom = {
     let geojson = await response.json();
     console.log(geojson);
     L.geoJSON(geojson, {
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, {
+          icon: L.icon({
+            iconUrl: `icons/bus_${feature.properties.LINE_ID}.png`,
+            iconAnchor: [16, 37], // 16, weil Bild genau um die Hälfte nach links verschoben werden muss
+            popAnchor: [0, -37]
+          })
+        });
+      },
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.STAT_NAME);
-        let statName = feature.properties.STAT_NAME;
-        let stopColor = "black";
-        if(statName =="Red Line") {
-          lineColor ="#FF4136";
-       } else if (lineName == "Yellow Line") {
-          lineColor = "#FFDC00";
         layer.bindPopup(`<h4><i class="fa-solid fa-bus"></i> ${feature.properties.LINE_NAME}</h4>
         ${feature.properties.STAT_NAME}`);
       }
     }).addTo(themaLayer.stops);
   }
+
   
   loadstops("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKHTSVSLOGD&srsName=EPSG:4326&outputFormat=json")
   
