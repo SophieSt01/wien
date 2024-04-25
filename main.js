@@ -100,6 +100,24 @@ let stephansdom = {
     let geojson = await response.json();
     console.log(geojson);
     L.geoJSON(geojson, {
+      style: function(feature){
+        console.log(feature.properties.LINE_NAME);
+        let lineName = feature.properties.LINE_NAME;
+        let lineColor = "black";
+        if(lineName =="Red Line") {
+          lineColor ="#FF4136";
+       } else if (lineName == "Yellow Line") {
+          lineColor = "#FFDC00";
+       } else if (lineName == "Blue Line") {
+          lineColor = "#0074D9"
+       }
+        return {
+          color: "#2ECC40",
+          weight: 1,
+          opacity: 0.4,
+          fillOpacity: 0.1,
+        };
+      },
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.LINE_NAME);
@@ -138,6 +156,14 @@ let stephansdom = {
     let geojson = await response.json();
     console.log(geojson);
     L.geoJSON(geojson, {
+      style: function(feature){
+        return {
+          color: "#F012BE",
+          weight: 1,
+          opacity: 0.4,
+          fillOpacity: 0.1,
+        };
+      },
       onEachFeature: function (feature, layer) {
         console.log(feature);
         console.log(feature.properties.NAME);
